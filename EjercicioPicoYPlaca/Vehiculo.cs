@@ -64,12 +64,17 @@ namespace EjercicioPicoYPlaca
         public Boolean ComprobarHora()
         {
             Boolean ok = false;
-            string[] tiempo = hora.Split(':');
-            if (Convert.ToInt32(tiempo[0]) > 23 || Convert.ToInt32(tiempo[1]) > 59)
-                ok = false;
-            else
-                ok = true;
 
+            string[] tiempo = hora.Trim().Split(':');
+            if (tiempo[0].Equals("") || tiempo[1].Equals(""))
+            { ok = false; }
+            else { 
+
+                if (Convert.ToInt32(tiempo[0]) > 23 || Convert.ToInt32(tiempo[1]) > 59)
+                    ok = false;
+                else
+                    ok = true;
+            }
                 return ok;
         } 
     }
